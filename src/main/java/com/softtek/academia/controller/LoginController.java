@@ -12,21 +12,23 @@ import com.sofftek.academia.model.User;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
+
 	@RequestMapping("")
 	public ModelAndView Login() {
 		User usr = new User();
-		return new ModelAndView("login","user",usr);
+		return new ModelAndView("login", "user", usr);
 	}
-	@RequestMapping(value ="/dopost", method = RequestMethod.POST)
-	public String getLogin(@ModelAttribute("user")User user) {
-		if(user != null) {
-			if(user.getUsername().equals("adrian") && user.getPassword().equals("academia")) {
+
+	@RequestMapping(value = "/dopost", method = RequestMethod.POST)
+	public String getLogin(@ModelAttribute("user") User user) {
+		if (user != null) {
+			if (user.getUsername().equals("adrian") && user.getPassword().equals("academia")) {
 				return "logged";
+			} else {
+				return "restricted";
 			}
-		}else {
+		} else {
 			return "restricted";
 		}
-		return null;
 	}
 }
