@@ -3,6 +3,7 @@ package com.softtek.academia.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HelloController {
@@ -13,5 +14,10 @@ public class HelloController {
 		model.addAttribute("name", "Adrian S.");
 
 		return "welcome";
+	}
+	@RequestMapping("/Hi")
+	public String Hi(Model model) {
+		model.addAttribute("name","Salvador");
+		return "Welcome";
 	}
 }
